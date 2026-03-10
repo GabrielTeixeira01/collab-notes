@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collab Notes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Sidebar com a lista de notas -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>C-Notes</h2>
+                <div style="display: flex; gap: 8px;">
+                    <button id="btn-clear-all" class="danger-icon-btn" title="Apagar Todas as Notas"
+                        style="width: 36px; height: 36px; padding: 0;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="3 6 5 6 21 6"></polyline>
+                            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2">
+                            </path>
+                            <line x1="10" y1="11" x2="10" y2="17"></line>
+                            <line x1="14" y1="11" x2="14" y2="17"></line>
+                        </svg>
+                    </button>
+                    <button id="btn-new-note" class="primary-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                        </svg>
+                        <span>Nova</span>
+                    </button>
+                </div>
+            </div>
+            <div class="notes-list" id="notes-list">
+                <!-- Lista de notas injetada via JS -->
+            </div>
+        </aside>
+
+        <!-- Área Principal de Edição -->
+        <main class="editor-area">
+            <div id="welcome-screen" class="welcome-screen active">
+                <div class="welcome-content">
+                    <div class="icon-pulse">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <line x1="16" y1="13" x2="8" y2="13"></line>
+                            <line x1="16" y1="17" x2="8" y2="17"></line>
+                            <polyline points="10 9 9 9 8 9"></polyline>
+                        </svg>
+                    </div>
+                    <h1>Collab Notes</h1>
+                    <p>Selecione uma nota ou crie uma nova para colaborar em tempo real.</p>
+                </div>
+            </div>
+
+            <div id="note-editor" class="note-editor hidden">
+                <div class="editor-header">
+                    <input type="text" id="note-title" placeholder="Título da nota..." autocomplete="off">
+                    <div class="editor-actions">
+                        <div id="sync-status" class="sync-status">
+                            <span class="status-dot"></span> Sincronizado
+                        </div>
+                        <button id="btn-delete-note" class="danger-icon-btn" title="Excluir Nota">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polyline points="3 6 5 6 21 6"></polyline>
+                                <path
+                                    d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2">
+                                </path>
+                                <line x1="10" y1="11" x2="10" y2="17"></line>
+                                <line x1="14" y1="11" x2="14" y2="17"></line>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="editor-body">
+                    <textarea id="note-content"
+                        placeholder="Comece a digitar sua nota aqui... as alterações aparecem em tempo real para todos."></textarea>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
