@@ -1,6 +1,6 @@
 📝 NoteColab.
 
-O NoteColab é um projeto que desenvolvi para praticar desenvolvimento web e backend utilizando Node.js. A ideia do projeto é criar uma aplicação simples onde é possível criar e salvar anotaçõe
+O NoteColab é um projeto que desenvolvi para praticar desenvolvimento web e backend utilizando Node.js. A ideia do projeto é criar uma aplicação simples onde é possível criar e salvar anotaçõe em tempo real com outras pessoas.
 
 Durante o desenvolvimento eu consegui aprender mais sobre Node.js.
 
